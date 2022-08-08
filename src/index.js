@@ -21,3 +21,5 @@ serviceWorkerRegistration.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// https://search.google.com/search-console?resource_id=https%3A%2F%2Fsimonvs97.github.io%2FMeet_App%2F search console for deployment

@@ -21,3 +21,19 @@ functions:
       - http:
           path: api/get-auth-url
           method: get
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get
+  getCalendarEvents:
+    handler: handler.getCalendarEvents
+    events:
+    - http:
+        path: api/get-events/{access_token}
+        method: get
+  
+
+  # getAuthURL https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url
+  # getAccessToken https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/token/{code}

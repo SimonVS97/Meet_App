@@ -9,13 +9,16 @@ import CitySearch from '../CitySeach';
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<App /> component', () => {
+  let AppWrapper;
+  beforeAll(() => {
+    AppWrapper = shallow(<App />);
+  });
+
   test('render list of events', () => {
-    const AppWrapper = shallow(<App />);
     expect(AppWrapper.find(EventList)).toHaveLength(1);
   });
 
   test('render CitySearch', () => {
-    const AppWrapper = shallow(<App />);
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   })
 

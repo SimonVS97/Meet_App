@@ -19,7 +19,7 @@ class Event extends Component {
     return (
       <div>
         <button
-          className='detailsButton'
+          className='showDetailsButton'
           onClick={() => this.setState({
             extraInfo: true
           })}>
@@ -33,6 +33,13 @@ class Event extends Component {
             <div className='Location'>{location}</div>
             <div className='detailsGoogleCalendar'>{detailsGoogleCalendar}</div>
             <div className='Summary'>{summary}</div>
+            <button
+              className='hideDetailsButton'
+              onClick={() => this.setState({
+                extraInfo: false
+              })}>
+              Hide Details
+            </button>
           </div>
         }
       </div>

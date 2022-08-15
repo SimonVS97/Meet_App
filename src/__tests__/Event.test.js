@@ -9,9 +9,25 @@ Enzyme.configure({ adapter: new Adapter() })
 
 
 describe('<Event /> component', () => {
-  test('render correct information', () => {
-    const EventWrapper = shallow(<Event event={mockData[0]} />);
+  let EventWrapper;
+  beforeAll(() => {
+    EventWrapper = shallow(<Event event={mockData[0]} />);
+  });
+  beforeEach(() => {
+    EventWrapper.setState({
+      extraInfo: false
+    });
+  })
+  afterEach(() => {
+    EventWrapper.setState({
+      extraInfo: false
+    });
+  })
 
+  test('render correct information', () => {
+    EventWrapper.setState({
+      extraInfo: true
+    });
     expect(EventWrapper.find('.Title')).toHaveLength(1);
     expect(EventWrapper.find('.startDateTime')).toHaveLength(1);
     expect(EventWrapper.find('.startTimeZone')).toHaveLength(1);
@@ -19,5 +35,16 @@ describe('<Event /> component', () => {
     expect(EventWrapper.find('.detailsGoogleCalendar')).toHaveLength(1);
     expect(EventWrapper.find('.Summary')).toHaveLength(1);
 
+  });
+
+  test('show extra information on click', () => {
+    EventWrapper.find('.detailsButton').at(0).simulate('click');
+
+    expect(EventWrapper.find('.Title')).toHaveLength(1);
+    expect(EventWrapper.find('.startDateTime')).toHaveLength(1);
+    expect(EventWrapper.find('.startTimeZone')).toHaveLength(1);
+    expect(EventWrapper.find('.Location')).toHaveLength(1);
+    expect(EventWrapper.find('.detailsGoogleCalendar')).toHaveLength(1);
+    expect(EventWrapper.find('.Summary')).toHaveLength(1);
   })
 });

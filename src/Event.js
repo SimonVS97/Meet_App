@@ -2,23 +2,22 @@ import React, { Component } from 'react';
 
 class Event extends Component {
   render() {
-    const { summary } = this.props;
-    const { description } = this.props;
-    const { startDateTime } = this.props.start.dateTime;
-    const { startTimeZone } = this.props.start.timeZone;
-    const { location } = this.props.location;
-    const { detailsGoogleCalendar } = this.props.htmlLink;
+    const { summary } = this.props.event;
+    const { description } = this.props.event;
+    const startDateTime = this.props.event.start.dateTime;
+    const startTimeZone = this.props.event.end.dateTime;
+    const { location } = this.props.event;
+    const detailsGoogleCalendar = this.props.event.htmlLink;
 
 
     return (
       <div>
-        <div>{description}</div>
-        <div>{startDateTime}</div>
-        <div>{startTimeZone}</div>
-        <div>{location}</div>
-        <div>{detailsGoogleCalendar}</div>
-        <div>{summary}</div>
-
+        <div className='Title'>{description}</div>
+        <div className='startDateTime'>{startDateTime}</div>
+        <div className='startTimeZone'>{startTimeZone}</div>
+        <div className='Location'>{location}</div>
+        <div className='detailsGoogleCalendar'>{detailsGoogleCalendar}</div>
+        <div className='Summary'>{summary}</div>
       </div>
     )
   }

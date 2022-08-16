@@ -10,8 +10,10 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('<Event /> component', () => {
   let EventWrapper;
+  let event;
   beforeAll(() => {
-    EventWrapper = shallow(<Event event={mockData[0]} />);
+    event = mockData[0];
+    EventWrapper = shallow(<Event event={event} />);
   });
   beforeEach(() => {
     EventWrapper.setState({
@@ -24,7 +26,7 @@ describe('<Event /> component', () => {
     });
   })
 
-  test('render correct information', () => {
+  test('render correct elements', () => {
     EventWrapper.setState({
       extraInfo: true
     });
@@ -36,6 +38,17 @@ describe('<Event /> component', () => {
     expect(EventWrapper.find('.Summary')).toHaveLength(1);
 
   });
+  test('render elements with correct information', () => {
+    EventWrapper.setState({
+      extraInfo: true
+    });
+    expect(EventWrapper.find('.Title').text()).toBe(event.summary)
+    expect(EventWrapper.find('.startDateTime').text()).toBe(event.start.dateTime)
+    expect(EventWrapper.find('.startTimeZone').text()).toBe(event.end.dateTime)
+    expect(EventWrapper.find('.Location').text()).toBe(event.location)
+    expect(EventWrapper.find('.detailsGoogleCalendar').text()).toBe(event.htmlLink)
+    expect(EventWrapper.find('.Summary').text()).toBe(event.description)
+  })
 
   test('show extra information on click', () => {
     EventWrapper.find('.showDetailsButton').at(0).simulate('click');

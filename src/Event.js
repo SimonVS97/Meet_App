@@ -27,12 +27,12 @@ class Event extends Component {
         </button>
         {extraInfo &&
           <div>
-            <div className='Title'>{description}</div>
+            <div className='Title'>{summary}</div>
             <div className='startDateTime'>{startDateTime}</div>
             <div className='startTimeZone'>{startTimeZone}</div>
             <div className='Location'>{location}</div>
             <div className='detailsGoogleCalendar'>{detailsGoogleCalendar}</div>
-            <div className='Summary'>{summary}</div>
+            <div className='Summary'>{description}</div>
             <button
               className='hideDetailsButton'
               onClick={() => this.setState({

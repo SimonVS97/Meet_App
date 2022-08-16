@@ -9,9 +9,9 @@ import NumberOfEvents from '../NumberOfEvents';
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<NumberOfEvents /> component', () => {
-  let NumberOfEvents;
+  let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEvents = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
   });
   beforeEach(() => {
 
@@ -22,9 +22,15 @@ describe('<NumberOfEvents /> component', () => {
 
   test('render correct elements', () => {
 
-    expect(NumberOfEvents.find('.NumberOfEvents')).toHaveLength(1);
-    expect(NumberOfEvents.find('.InputNumberOfEvents')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.NumberOfEvents')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.InputNumberOfEvents')).toHaveLength(1);
 
   });
+  test('setting a number should change state', () => {
+    NumberOfEventsWrapper.find(".InputNumberOfEvents").simulate("change", {
+      target: { value: 10 },
+    });
+    expect(NumberOfEventsWrapper.state("numberOfEvents")).toEqual(10);
+  })
 
 })

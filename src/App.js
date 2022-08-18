@@ -3,7 +3,7 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySeach';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents } from './api';
+import { extractLocations, getEvents } from './api';
 
 
 class App extends Component {
@@ -15,11 +15,26 @@ class App extends Component {
 
   updateEvents = (location) => {
     getEvents().then((events) => {
-      const locationEvents = events.filter((event) => event.location === location);
+      const locationEvents = (location === 'all') ?
+        events :
+        events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents
       });
     });
+  }
+
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {

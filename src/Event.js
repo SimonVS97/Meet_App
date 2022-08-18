@@ -18,6 +18,9 @@ class Event extends Component {
 
     return (
       <div>
+        <h1>{summary}</h1>
+        <p>{startDateTime}</p>
+        <p>{location}</p>
         <button
           className='showDetailsButton'
           onClick={() => this.setState({

@@ -87,6 +87,7 @@ export const getAccesstoken = async () => {
         method: 'GET'
       });
       // extact authUrl
+      console.log('hel');
       const { authUrl } = results.data;
       // redirect with authUrl
       return (window.location.href = authUrl);

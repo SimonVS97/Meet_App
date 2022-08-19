@@ -85,7 +85,7 @@ export const getAccesstoken = async () => {
     if (!code) {
       const results = await fetch('https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url', {
         method: 'GET'
-      });
+      }).then((res) => res.json());
       // extact authUrl
       console.log('hel');
       const { authUrl } = results.data;

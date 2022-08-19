@@ -6,11 +6,66 @@
  * It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
  * The Set will remove all duplicates from the array.
  */
-
+import NProgress from 'nprogress';
 import { mockData } from "./mockData";
 
+const checkToken = async (accessToken) => {
+  const result = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`, {
+    method: 'GET'
+  })
+    .then((res) => res.json())
+    .catch((error) => error.json())
+  return result;
+};
+
+const removeQuery = () => {
+  if (window.history.pushState && window.location.pathname) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+}
+
+const getToken = async (code) => {
+  const encodeCode = encodeURIComponent(code);
+  const { access_token } = await fetch(
+    'https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .catch((error) => error);
+
+  access_token && localStorage.setItem("access_token", access_token);
+
+  return access_token;
+}
+
 export const getEvents = async () => {
-  return mockData;
+  NProgress.start();
+  if (window.location.href.startsWith('http://localhost')) {
+    NProgress.done();
+    return mockData;
+  }
+  const token = await getAccesstoken();
+  if (token) {
+    removeQuery();
+    const url = 'https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
+    const result = await fetch(url, { method: 'GET' });
+    if (result.data) {
+      var locations = extractLocations(result.data.events);
+      localStorage.setItem("lastEvents", JSON.stringify(result.data));
+      localStorage.setItem("locations", JSON.stringify(locations));
+    }
+    NProgress.done();
+    return result.data.events;
+  }
 }
 
 export const extractLocations = (events) => {
@@ -31,7 +86,9 @@ export const getAccesstoken = async () => {
       const results = await fetch('https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url', {
         method: 'GET'
       });
+      // extact authUrl
       const { authUrl } = results.data;
+      // redirect with authUrl
       return (window.location.href = authUrl);
     }
     return code && getToken(code);

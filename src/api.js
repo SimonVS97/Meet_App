@@ -58,7 +58,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url = 'https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
-    const result = await axios.get(url, { method: 'GET' });
+    const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));

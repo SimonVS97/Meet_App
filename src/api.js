@@ -86,7 +86,7 @@ export const getAccesstoken = async () => {
     if (!code) {
       const results = await axios.get('https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url', {
         method: 'GET'
-      }).then((res) => res.json());
+      })
       // extact authUrl
       const { authUrl } = results.data;
       // redirect with authUrl

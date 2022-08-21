@@ -21,16 +21,20 @@ describe('<NumberOfEvents /> component', () => {
   })
 
   test('render correct elements', () => {
-
+    expect(NumberOfEventsWrapper.find('.LabelNumberOfEvents')).toHaveLength(1);
     expect(NumberOfEventsWrapper.find('.NumberOfEvents')).toHaveLength(1);
     expect(NumberOfEventsWrapper.find('.InputNumberOfEvents')).toHaveLength(1);
-
+  });
+  test('render default input', () => {
+    const query = NumberOfEventsWrapper.state('numberOfEvents');
+    expect(NumberOfEventsWrapper.find('.InputNumberOfEvents').prop('value')).toBe(query);
   });
   test('setting a number should change state', () => {
     NumberOfEventsWrapper.find(".InputNumberOfEvents").simulate("change", {
       target: { value: 10 },
     });
     expect(NumberOfEventsWrapper.state("numberOfEvents")).toEqual(10);
-  })
+  });
+
 
 })

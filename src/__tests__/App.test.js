@@ -32,6 +32,8 @@ describe('<App /> component', () => {
 });
 
 describe('<App /> integration', () => {
+
+
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
     const AppEventsState = AppWrapper.state('events');
@@ -67,6 +69,28 @@ describe('<App /> integration', () => {
     const allEvents = await getEvents();
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
+  });
+  test('NumberOfEvents updates state "numberOfEvents" of App', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.find(".InputNumberOfEvents").simulate("change", {
+      target: { value: 1 },
+    });
+    expect(AppWrapper.state("numberOfEvents")).toEqual(1);
+    AppWrapper.unmount();
+  });
+  test('App passes resized events to EventList', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.find(".InputNumberOfEvents").simulate("change", {
+      target: { value: 1 },
+    });
+    const AppEvents = AppWrapper.state('events');
+    const EventListWrapper = AppWrapper.find(EventList);
+    const EventListEvents = EventListWrapper.props().events;
+    expect(AppEvents).toEqual(EventListEvents);
+    AppWrapper.unmount();
+  });
 
-  })
+
 })

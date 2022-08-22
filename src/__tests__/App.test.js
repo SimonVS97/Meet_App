@@ -4,7 +4,7 @@ import App from '../App';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import EventList from '../EventList';
-import CitySearch from '../CitySeach';
+import CitySearch from '../CitySearch';
 import NumberOfEvents from "../NumberOfEvents";
 import { mockData } from '../mockData';
 import { extractLocations, getEvents } from '../api';

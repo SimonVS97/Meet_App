@@ -12,6 +12,7 @@ Enzyme.configure({ adapter: new Adapter() })
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
+  // Test 1
   test('An event element is collapsed by default.', ({ given, when, then }) => {
     given('the user has not opened the app', () => {
 
@@ -28,6 +29,8 @@ defineFeature(feature, test => {
       expect(EventWrapper.find('.event__Details')).toHaveLength(0);
     });
   });
+
+  //Test 2
   test('User can expand an event to see its details.', ({ given, when, then }) => {
     let AppWrapper;
     given('the user has opened the app', () => {
@@ -49,28 +52,27 @@ defineFeature(feature, test => {
       expect(EventWrapper.find('.event__Details')).toHaveLength(1);
     });
   });
+
+  // Test 3
   test('User can collapse an event to hide its details.', ({ given, when, then }) => {
     let AppWrapper;
-    let EventWrapper;
-    given('that the details about an event are shown', () => {
-      AppWrapper = mount(<App />);
+    given('that the details about an event are shown', async () => {
+      AppWrapper = await mount(<App />);
       expect(AppWrapper).toHaveLength(1);
       AppWrapper.update();
-      EventWrapper = AppWrapper.find('Event').first();
-      expect(EventWrapper.find('.event__Details')).toHaveLength(1);
+      AppWrapper.find('.event .showDetailsButton').at(0).simulate('click');
+      AppWrapper.update();
+      expect(AppWrapper.find('.event .event__Details').at(0)).toHaveLength(1);
     });
 
     when('the user clicks on that event', () => {
-      AppWrapper.update();
-      EventWrapper.find('.hideDetailsButton').simulate('click');
-      AppWrapper.update();
-      expect(EventWrapper.state('extraInfo')).toBe(false);
+
+      AppWrapper.find('.event .hideDetailsButton').at(0).simulate('click');
     });
 
     then('the details should be hidden', () => {
-      EventWrapper = AppWrapper.find('Event').first();
-      expect(EventWrapper.find('.event__Details')).toHaveLength(0);
-
+      AppWrapper.update();
+      expect(AppWrapper.find('.event .event__Details').at(0)).toHaveLength(0);
     });
   });
 });

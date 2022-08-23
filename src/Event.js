@@ -17,7 +17,7 @@ class Event extends Component {
 
 
     return (
-      <div>
+      <div className='event'>
         <h1>{summary}</h1>
         <p>{startDateTime}</p>
         <p>{location}</p>
@@ -29,7 +29,7 @@ class Event extends Component {
           Show Details
         </button>
         {extraInfo &&
-          <div>
+          <div className='event__Details'>
             <div className='Title'>{summary}</div>
             <div className='startDateTime'>{startDateTime}</div>
             <div className='startTimeZone'>{startTimeZone}</div>

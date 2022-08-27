@@ -24,19 +24,33 @@ class App extends Component {
           events.filter((event) => event.location === location);
         locationEvents = locationEvents.filter((event, index) => index < this.state.numberOfEvents);
         this.setState({
-          events: locationEvents
+          events: locationEvents,
+          locations: location
         });
       });
     } else if (location === undefined) {
-      this.setState({
+      getEvents().then((events) => {
+        let lengthEvents = events;
+        if (typeof this.state.locations == 'string') {
+          lengthEvents = lengthEvents.filter((event, index) => event.location == this.state.locations)
+        }
+        lengthEvents = lengthEvents.filter((event, index) => index < eventCount);
+        this.setState({
+          numberOfEvents: eventCount,
+          events: lengthEvents
+        });
+
+      })
+
+
+      /*this.setState({
         numberOfEvents: eventCount
       });
       const lengthEvents = this.state.events.filter((event, index) => index < this.state.numberOfEvents);
       this.setState({
         events: lengthEvents
-      });
+      }); */
     }
-
   }
 
   componentDidMount() {

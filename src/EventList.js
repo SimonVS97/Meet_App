@@ -9,7 +9,7 @@ class EventList extends Component {
     return (
       <ul className='EventList'>
         <li>
-          {!navigator.onLine && OfflineAlert}
+          {!navigator.onLine && <OfflineAlert />}
         </li>
         {events.map(event =>
           <li key={event.id}>

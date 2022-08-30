@@ -10,7 +10,7 @@ import NProgress from 'nprogress';
 import { mockData } from "./mockData";
 import axios from 'axios';
 
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`, {
     method: 'GET'
   })

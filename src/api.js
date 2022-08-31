@@ -11,14 +11,12 @@ import { mockData } from "./mockData";
 import axios from 'axios';
 
 export const checkToken = async (accessToken) => {
-  try {
-    const result = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`, {
-      method: 'GET'
-    });
-    const jsonResult = await result.json();
-    return jsonResult;
-  } catch (error) {
-  }
+  const result = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`, {
+    method: 'GET'
+  })
+    .then((res) => res.json())
+    .catch((error) => error.json());
+  return result;
 };
 
 const removeQuery = () => {

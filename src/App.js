@@ -15,7 +15,7 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    showWelcomeScreen: undefined
+    showWelcomeScreen: true
   }
 
   updateEvents = (location, eventCount) => {

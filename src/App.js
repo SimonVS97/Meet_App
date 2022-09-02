@@ -6,7 +6,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
 import NProgress from 'nprogress';
-import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter } from 'recharts';
+import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from 'recharts';
 
 
 class App extends Component {
@@ -100,16 +100,18 @@ class App extends Component {
         <br></br>
         <NumberOfEvents updateEvents={this.updateEvents}></NumberOfEvents>
         <h4>Events in each city</h4>
+        <ResponsiveContainer height={400}>
+          <ScatterChart
+            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <CartesianGrid />
+            <XAxis dataKey="city" name="city" type="category" />
+            <YAxis dataKey="number" name="number of events" type="number" />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Legend verticalAlign='top' />
+            <Scatter data={this.getData()} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
 
-        <ScatterChart width={400} height={400}
-          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-          <CartesianGrid />
-          <XAxis dataKey="city" name="city" type="category" />
-          <YAxis dataKey="number" name="number of events" type="number" />
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Legend verticalAlign='top' />
-          <Scatter data={this.getData()} fill="#8884d8" />
-        </ScatterChart>
 
         <EventList events={this.state.events}></EventList>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => getAccessToken()} />

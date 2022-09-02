@@ -48,6 +48,28 @@ const getToken = async (code) => {
   return access_token;
 }
 
+export const getAccessToken = async () => {
+  const accessToken = localStorage.getItem("access_token");
+
+  const tokenCheck = accessToken && (await checkToken(accessToken));
+  if (!accessToken || tokenCheck.error) {
+    await localStorage.removeItem("access_token");
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = await searchParams.get("code");
+    if (!code) {
+      const results = await axios.get('https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url', {
+        method: 'GET'
+      })
+      // extact authUrl
+      const { authUrl } = results.data;
+      // redirect with authUrl
+      return (window.location.href = authUrl);
+    }
+    return code && getToken(code);
+  }
+  return accessToken;
+}
+
 export const getEvents = async () => {
   NProgress.start();
   if (window.location.href.startsWith('localhost')) {
@@ -59,7 +81,7 @@ export const getEvents = async () => {
     NProgress.done();
     return data ? JSON.parse(data).events : [];
   }
-  const token = await getAccesstoken();
+  const token = await getAccessToken();
   if (token) {
     removeQuery();
     const url = 'https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
@@ -80,24 +102,3 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-export const getAccesstoken = async () => {
-  const accessToken = localStorage.getItem('access_token');
-
-  const tokenCheck = accessToken && (await checkToken(accessToken));
-  if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem("access_token");
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = await searchParams.get("code");
-    if (!code) {
-      const results = await axios.get('https://xw4n26dvxb.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url', {
-        method: 'GET'
-      })
-      // extact authUrl
-      const { authUrl } = results.data;
-      // redirect with authUrl
-      return (window.location.href = authUrl);
-    }
-    return code && getToken(code);
-  }
-  return accessToken;
-}

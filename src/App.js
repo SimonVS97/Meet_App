@@ -3,7 +3,7 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { extractLocations, getEvents, checkToken, getAccesstoken } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
 import NProgress from 'nprogress';
 import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter } from 'recharts';
@@ -112,7 +112,7 @@ class App extends Component {
     </ScatterChart> */}
 
         <EventList events={this.state.events}></EventList>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => getAccesstoken()} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => getAccessToken()} />
       </div>
     );
   }

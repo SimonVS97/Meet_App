@@ -101,7 +101,7 @@ class App extends Component {
         <NumberOfEvents updateEvents={this.updateEvents}></NumberOfEvents>
         <h4>Events in each city</h4>
 
-        {/*<ScatterChart width={400} height={400}
+        <ScatterChart width={400} height={400}
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <CartesianGrid />
           <XAxis dataKey="city" name="city" type="category" />
@@ -109,7 +109,7 @@ class App extends Component {
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Legend verticalAlign='top' />
           <Scatter data={this.getData()} fill="#8884d8" />
-    </ScatterChart> */}
+        </ScatterChart>
 
         <EventList events={this.state.events}></EventList>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => getAccessToken()} />

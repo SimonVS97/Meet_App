@@ -74,10 +74,10 @@ class App extends Component {
   getData = () => {
     const { locations, events } = this.state;
     console.log(typeof locations);
+    console.log(locations);
     const data = locations.map((location) => {
       const number = events.filter((event) => event.location === location).length;
       const city = location.split(', ').shift();
-      console.log({ city, number });
       return { city, number };
     });
     return data;

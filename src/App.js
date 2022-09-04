@@ -26,8 +26,8 @@ class App extends Component {
           events.filter((event) => event.location === location);
         locationEvents = locationEvents.filter((event, index) => index < this.state.numberOfEvents);
         this.setState({
-          events: [locationEvents],
-          locations: location
+          events: locationEvents,
+          locations: [location]
         });
       });
     } else if (location === undefined) {

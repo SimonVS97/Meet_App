@@ -7,12 +7,15 @@ class Event extends Component {
   }
 
   render() {
-    const { summary, description } = this.props.event;
+    const { summary, description, location, start: { dateTime: { startDateTime } }, end: { dateTime: startTimeZone }, htmlLink } = this.props.event;
+    /*
     const startDateTime = this.props.event.start.dateTime;
     const startTimeZone = this.props.event.end.dateTime;
     const { location } = this.props.event;
     const detailsGoogleCalendar = this.props.event.htmlLink;
+    */
     let extraInfo = this.state.extraInfo;
+
 
 
     return (
@@ -33,7 +36,7 @@ class Event extends Component {
             <div className='startDateTime'>{startDateTime}</div>
             <div className='startTimeZone'>{startTimeZone}</div>
             <div className='Location'>{location}</div>
-            <div className='detailsGoogleCalendar'>{detailsGoogleCalendar}</div>
+            <div className='detailsGoogleCalendar'>{htmlLink}</div>
             <div className='Summary'>{description}</div>
             <button
               className='hideDetailsButton'

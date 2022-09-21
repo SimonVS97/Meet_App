@@ -36,8 +36,7 @@ class Event extends Component {
             <div className='startDateTime'>{startDateTime}</div>
             <div className='startTimeZone'>{startTimeZone}</div>
             <div className='Location'>{location}</div>
-            <a href={htmlLink}>View in Google Calendar</a>
-            <div className='htmlLink'>{htmlLink}</div>
+            <a href={htmlLink} target="_blank">View in Google Calendar</a>
             <div className='Summary'>{description}</div>
             <button
               className='hideDetailsButton'

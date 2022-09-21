@@ -12,7 +12,7 @@ class Event extends Component {
     const startDateTime = this.props.event.start.dateTime;
     const startTimeZone = this.props.event.end.dateTime;
     const { location } = this.props.event;
-    const detailsGoogleCalendar = this.props.event.htmlLink;
+    const {htmlLink} = this.props.event;
     */
     let extraInfo = this.state.extraInfo;
 
@@ -36,7 +36,8 @@ class Event extends Component {
             <div className='startDateTime'>{startDateTime}</div>
             <div className='startTimeZone'>{startTimeZone}</div>
             <div className='Location'>{location}</div>
-            <div className='detailsGoogleCalendar'>{htmlLink}</div>
+            <a href={htmlLink}>View in Google Calendar</a>
+            <div className='htmlLink'>{htmlLink}</div>
             <div className='Summary'>{description}</div>
             <button
               className='hideDetailsButton'

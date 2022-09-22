@@ -27,6 +27,7 @@ class Event extends Component {
     const {htmlLink} = this.props.event;
     */
     let extraInfo = this.state.extraInfo;
+    let zone = this.props.event.start.timeZone;
 
 
 
@@ -34,6 +35,7 @@ class Event extends Component {
 
       <div className='event'>
         {console.log(this.props.event)}
+        <div>{zone}</div>
         <h1>{summary}</h1>
         <p>{this.formatDate(startTimeZone)}</p>
         <p>{location}</p>

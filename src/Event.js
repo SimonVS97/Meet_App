@@ -28,13 +28,13 @@ class Event extends Component {
         <h1>{summary}</h1>
         <p>{startTimeZone}</p>
         <p>{location}</p>
-        <button
+        {extraInfo === false && <button
           className='showDetailsButton'
           onClick={() => this.setState({
             extraInfo: true
           })}>
           Show Details
-        </button>
+        </button>}
         {extraInfo &&
           <div className='event__Details'>
             <div className='Title'>{summary}</div>

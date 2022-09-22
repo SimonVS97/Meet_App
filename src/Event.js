@@ -7,7 +7,7 @@ class Event extends Component {
   }
 
   render() {
-    const { summary, description, location, start: { dateTime: { startDateTime } }, end: { dateTime: startTimeZone }, htmlLink } = this.props.event;
+    const { summary, description, location, start: { dateTime: { startDateTime } }, start: { timeZone: startTimeZone }, htmlLink } = this.props.event;
     /*
     const startDateTime = this.props.event.start.dateTime;
     const startTimeZone = this.props.event.end.dateTime;

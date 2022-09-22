@@ -16,7 +16,7 @@ class Event extends Component {
     const {htmlLink} = this.props.event;
     */
     let extraInfo = this.state.extraInfo;
-    let time = this.props.event.start.startDateTime;
+    let time = this.props.event.start.DateTime;
 
 
 

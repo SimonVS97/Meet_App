@@ -24,7 +24,6 @@ class Event extends Component {
 
       <div className='event'>
         <h1>{summary}</h1>
-        <p>{time.slice(0, 10)}</p>
         <p>{location}</p>
         {extraInfo === false && <button
           className='showDetailsButton'
@@ -35,7 +34,7 @@ class Event extends Component {
         </button>}
         {extraInfo &&
           <div className='event__Details'>
-            <div className='startDateTime'>Start: {startDateTime}</div>
+            <div className='startDateTime'>Start: {time.slice(0, 10)}</div>
             <div className='startTimeZone'>Timezone: {startTimeZone}</div>
             <a href={htmlLink} target="_blank">View in Google Calendar</a>
             <div className='Summary'>{description}</div>

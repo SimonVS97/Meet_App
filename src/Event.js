@@ -26,7 +26,7 @@ class Event extends Component {
         {console.log(this.props.event)}
         <div>{zone}</div>
         <h1>{summary}</h1>
-        <p>{(startTimeZone)}</p>
+        <p>{startTimeZone}</p>
         <p>{location}</p>
         <button
           className='showDetailsButton'

@@ -6,17 +6,6 @@ class Event extends Component {
     extraInfo: false
   }
 
-  twoDigits = (num) => {
-    return num.toString().padStart(2, '0');
-  }
-
-  formatDate = (date) => {
-    return [
-      this.twoDigits(date.getDate()),
-      this.twoDigits(date.getMonth() + 1),
-      date.getFullYear(),
-    ].join('/');
-  }
 
   render() {
     const { summary, description, location, start: { dateTime: { startDateTime } }, start: { timeZone: startTimeZone }, htmlLink } = this.props.event;
@@ -37,7 +26,7 @@ class Event extends Component {
         {console.log(this.props.event)}
         <div>{zone}</div>
         <h1>{summary}</h1>
-        <p>{this.formatDate(startTimeZone)}</p>
+        <p>{(startTimeZone)}</p>
         <p>{location}</p>
         <button
           className='showDetailsButton'

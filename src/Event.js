@@ -23,8 +23,6 @@ class Event extends Component {
     return (
 
       <div className='event'>
-        {console.log(this.props.event)}
-        <div>{zone}</div>
         <h1>{summary}</h1>
         <p>{startTimeZone}</p>
         <p>{location}</p>

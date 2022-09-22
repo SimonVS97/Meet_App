@@ -15,13 +15,13 @@ class Event extends Component {
     const {htmlLink} = this.props.event;
     */
     let extraInfo = this.state.extraInfo;
-
+    console.log(this.props.event);
 
 
     return (
       <div className='event'>
         <h1>{summary}</h1>
-        <p>{startDateTime}</p>
+        <p>{startTimeZone}</p>
         <p>{location}</p>
         <button
           className='showDetailsButton'

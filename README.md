@@ -27,38 +27,67 @@ As a user, I want to be able to know the number of upcoming events by city, so I
 
 ## Scenarios
 ### User Story 1
-> Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
+> Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities
 - Given the user has not searched for a city
 - when the user opens the app
-- then the user should see a list of all upcoming events.
+- then the user should see a list of all upcoming events
 
-Given the main page is open, when the user starts typing in the city textbox, then the user should see a list of cities that match what they've typed.
+> Scenario 2: User should see a list of suggestions when they search for a city
+- Given the main page is open 
+- when the user starts typing in the city textbox
+- then the user should see a list of cities that match what they've typed
 
-Given the user was typing a certain city in the textbox and the list of suggestd cities is howing, when the user selects a city from that list, then the users city should be changed to that city and the user should receive a list of upcoming events in that city.
+> Scenario 3: User can select a city from the suggested list
+- Given the user was typing a certain city in the textbox 
+- and the list of suggestd cities is howing
+- when the user selects a city from that list 
+- then the users city should be changed to that city 
+- and the user should receive a list of upcoming events in that city
 
 ### User Story 2
-Given the user has not opened the app, when the user opens the app, then all event elements should be collapsed.
+> Scenario 1: An event element is collapsed by default
+- Given the user has not opened the app 
+- when the user opens the app
+- then all event elements should be collapsed
 
-Given the user has opened the app, when ther user clicks on an event, then more details about that event are shown.
+> Scenario 2: User can expand an event to see its details
+- Given the user has opened the app
+- when ther user clicks on an event 
+- then more details about that event are shown
 
-Given that the details about an event are shown, when the user clicks on that event, then the details should be hidden.
+> Scenario 3: User can collapse an event to hide its details
+- Given that the details about an event are shown 
+- when the user clicks on that event 
+- then the details should be hidden
 
 ### User Story 3
-Given the user opens the app, when the user does not specify a number, then 32 elements should be shown.
+> Scenario 1: When user hasn’t specified a number, 32 is the default number
+- Given the user opens the app
+- when the user does not specify a number
+- then 32 elements should be shown
 
-Given the user has not specified a number, when the user specifies a number, then his number of events shoulb be shown.
+> Scenario 2: User can change the number of events they want to see
+- Given the user has not specified a number
+- when the user specifies a number
+- then his number of events shoulb be shown
 
 ### User Story 4
-Given the user has no internet connection, when the user opens the app, then cached data should be used to display events/cities.
+> Scenario 1: Show cached data when there’s no internet connection
+- Given the user has no internet connection
+- when the user opens the app
+- then cached data should be used to display events/cities
 
-Given the user has no internet connection, when the user changes the settings, then an error messageg should be displayed.
+> Scenario 2: Show error when user changes the settings (city, time range)
+- Given the user has no internet connection
+- when the user changes the settings
+- then an error messageg should be displayed
 
 ### User Story 5
-Given the user was typing in the textbox the list of suggested cities is showing, when the user clicks on a city, then the user should see a chart with the number of upcoming events in that city.
+> Scenario 1: Show a chart with the number of upcoming events in each city
+- Given the user was typing in the textbox the list of suggested cities is showing
+- when the user clicks on a city
+- then the user should see a chart with the number of upcoming events in that city
 
-## Dependencies
-
-React
 
 ## API
 This app uses the Google Calendar API to fetch information about upcoming events by location.

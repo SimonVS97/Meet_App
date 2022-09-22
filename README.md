@@ -4,13 +4,13 @@
 This app provides a list of upcoming events for any given city, with data provided by Google Calendar. The app works offline using cached data from the last time it was used online. The user can serach for events in a specific city or browse all events, customize how many events are shown on screen, click an event for more details, and see how many events are upcoming in certain cities.
 
 ## Technologies used
-HTML
-CSS
-JS
-React v.18.2.0
-AWS Lambda
-Serverless
-CRA
+- HTML
+- CSS
+- JS
+- React v.18.2.0
+- AWS Lambda
+- Serverless
+- CRA
 
 ## User Stories
 
@@ -27,7 +27,10 @@ As a user, I want to be able to know the number of upcoming events by city, so I
 
 ## Scenarios
 ### User Story 1
-Given the user has not searched for a city, when the user opens the app, then the user should see a list of all upcoming events.
+> Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
+- Given the user has not searched for a city
+- when the user opens the app
+- then the user should see a list of all upcoming events.
 
 Given the main page is open, when the user starts typing in the city textbox, then the user should see a list of cities that match what they've typed.
 

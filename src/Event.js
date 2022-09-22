@@ -16,7 +16,7 @@ class Event extends Component {
     const {htmlLink} = this.props.event;
     */
     let extraInfo = this.state.extraInfo;
-    let time = this.props.event.start.DateTime;
+    let time = this.props.event.start.dateTime;
 
 
 
@@ -24,7 +24,7 @@ class Event extends Component {
 
       <div className='event'>
         <h1>{summary}</h1>
-        <p>{time}</p>
+        <p>{time.slice(0, 10)}</p>
         <p>{location}</p>
         {extraInfo === false && <button
           className='showDetailsButton'

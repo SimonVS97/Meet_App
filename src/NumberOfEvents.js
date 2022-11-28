@@ -29,9 +29,10 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className='NumberOfEvents'>
-        <label className="LabelNumberOfEvents">Number of Events: </label>
+        <label htmlFor="events-number" className="LabelNumberOfEvents">Number of Events: </label>
         <ErrorAlert text={this.state.infoText} />
         <input
+          id="events-number"
           type="number"
           className="InputNumberOfEvents"
           value={this.state.numberOfEvents}

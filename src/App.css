@@ -15,11 +15,11 @@ body {
 
 .App {
   text-align: center;
-  padding: 2% 5%;
 }
 
 .App * {
   box-sizing: border-box;
+  line-height: 1.8;;
 }
 
 .Alert {
@@ -210,14 +210,11 @@ input[type="number"] {
 }
 .btn-text {
   float: right;
-  margin: 11px 11px 0 0;
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
 }
-
-
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

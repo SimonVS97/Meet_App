@@ -6,7 +6,6 @@ import NumberOfEvents from './NumberOfEvents';
 import EventGenre from './EventGenre';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
-import NProgress from 'nprogress';
 import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from 'recharts';
 
 
@@ -45,15 +44,6 @@ class App extends Component {
         });
 
       })
-
-
-      /*this.setState({
-        numberOfEvents: eventCount
-      });
-      const lengthEvents = this.state.events.filter((event, index) => index < this.state.numberOfEvents);
-      this.setState({
-        events: lengthEvents
-      }); */
     }
   }
 

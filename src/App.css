@@ -171,6 +171,12 @@ input:focus {
   transition: all 0.7s;
 }
 
+.data-vis-wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn-details:hover:before {
   top: -30px;
   left: -30px;

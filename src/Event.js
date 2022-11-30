@@ -1,55 +1,39 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
-
   state = {
-    extraInfo: false
-  }
+    collapsed: true,
+  };
 
+  handleClick = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  };
+
+  dateNewFormat = (eventDate) => {
+    const newDate = `${new Date(eventDate)}`;
+    return newDate;
+  };
+
+  changeBtnText = () => {
+    return `${this.state.collapsed ? 'show' : 'hide'} details`;
+  };
 
   render() {
-    const { summary, description, location, start: { dateTime: { startDateTime } }, start: { timeZone: startTimeZone }, htmlLink } = this.props.event;
-    /*
-    const startDateTime = this.props.event.start.dateTime;
-    const startTimeZone = this.props.event.end.dateTime;
-    const { location } = this.props.event;
-    const {htmlLink} = this.props.event;
-    */
-    let extraInfo = this.state.extraInfo;
-    let time = this.props.event.start.dateTime;
-
-
+    const { event } = this.props;
 
     return (
-
-      <div className='event'>
-        <h1>{summary}</h1>
-        <p>{location}</p>
-        {extraInfo === false && <button
-          className='showDetailsButton'
-          onClick={() => this.setState({
-            extraInfo: true
-          })}>
-          Show Details
-        </button>}
-        {extraInfo &&
-          <div className='event__Details'>
-            <div className='startDateTime'>Start: {time.slice(0, 10)}</div>
-            <div className='startTimeZone'>Timezone: {startTimeZone}</div>
-            <a href={htmlLink} target="_blank">View in Google Calendar</a>
-            <div className='Summary'>{description}</div>
-            <button
-              className='hideDetailsButton'
-              onClick={() => this.setState({
-                extraInfo: false
-              })}>
-              Hide Details
-            </button>
-          </div>
-        }
+      <div className="event">
+        <h3 className="title">{event.summary}</h3>
+        <p className="start-time">{this.dateNewFormat(event.start.dateTime)}</p>
+        <p className="location">{event.location}</p>
+        {!this.state.collapsed && (
+          <p className="event-details">{event.description}</p>
+        )}
+        <button className="btn-details" onClick={this.handleClick}>
+          {this.changeBtnText()}
+        </button>
       </div>
-    )
+    );
   }
 }
-
 export default Event;

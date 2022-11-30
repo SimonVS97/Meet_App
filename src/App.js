@@ -3,7 +3,6 @@ import './App.css';
 import EventList from './EventList';
 import CitySerach from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { DarkMode } from './DarkMode';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
@@ -112,7 +111,6 @@ class App extends Component {
           numberOfEvents={numberOfEvents}
           updateEvents={this.updateEvents}
         />
-        <DarkMode />
         <h2>Overview of the events</h2>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />

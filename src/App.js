@@ -90,15 +90,15 @@ class App extends Component {
         <br></br>
         <br></br>
         <NumberOfEvents updateEvents={this.updateEvents}></NumberOfEvents>
-        <h4>Events in each city</h4>
-        <div className="data-vis-wrapper">
+        <h4>Overview of events</h4>
+        <div style={{ textAlign: "center" }} className="data-vis-wrapper">
           <EventGenre events={events} />
-          <ResponsiveContainer height={400}>
+          <ResponsiveContainer height={400} >
             <ScatterChart
               margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid />
-              <XAxis dataKey="city" name="city" type="category" />
-              <YAxis dataKey="number" name="number of events" type="number" allowDecimals={false} />
+              <XAxis dataKey="city" name="City" type="category" />
+              <YAxis dataKey="number" name="Number of events" type="number" allowDecimals={false} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#8884d8" />
             </ScatterChart>
@@ -106,7 +106,7 @@ class App extends Component {
         </div>
         <EventList events={this.state.events}></EventList>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => getAccessToken()} />
-      </div>
+      </div >
     );
   }
 

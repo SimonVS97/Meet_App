@@ -8,9 +8,7 @@ class EventList extends Component {
     const { events } = this.props;
     return (
       <ul className='EventList'>
-        <li>
-          {!navigator.onLine && <OfflineAlert text={'This list is loaded from the cache.'} />}
-        </li>
+        {!navigator.onLine && <OfflineAlert text={'This list is loaded from the cache.'} />}
         {events.map(event =>
           <li key={event.id}>
             <Event event={event} />

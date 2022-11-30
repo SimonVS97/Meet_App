@@ -19,33 +19,48 @@ class App extends Component {
   }
 
   updateEvents = (location, eventCount) => {
-    if (eventCount === undefined) {
-      getEvents().then((events) => {
-        let locationEvents = (location === 'all') ?
-          events :
-          events.filter((event) => event.location === location);
-        locationEvents = locationEvents.filter((event, index) => index < this.state.numberOfEvents);
-        location = [location];
-        this.setState({
-          events: locationEvents,
-          locations: location
-        });
+    if (!location) location = 'all';
+    !eventCount
+      ? (eventCount = this.state.numberOfEvents)
+      : this.setState({ numberOfEvents: eventCount });
+    getEvents().then((events) => {
+      const locationEvents =
+        location === 'all'
+          ? events
+          : events.filter((event) => event.location === location);
+      this.setState({
+        events: locationEvents.slice(0, eventCount),
       });
-    } else if (location === undefined) {
-      getEvents().then((events) => {
-        let lengthEvents = events;
-        if (typeof this.state.locations == 'string') {
-          lengthEvents = lengthEvents.filter((event, index) => event.location == this.state.locations)
-        }
-        lengthEvents = lengthEvents.filter((event, index) => index < eventCount);
-        this.setState({
-          numberOfEvents: eventCount,
-          events: lengthEvents
-        });
+    });
+  };
 
-      })
-    }
+  /*if (eventCount === undefined) {
+    getEvents().then((events) => {
+      let locationEvents = (location === 'all') ?
+        events :
+        events.filter((event) => event.location === location);
+      locationEvents = locationEvents.filter((event, index) => index < this.state.numberOfEvents);
+      location = [location];
+      this.setState({
+        events: locationEvents,
+        locations: location
+      });
+    });
+  } else if (location === undefined) {
+    getEvents().then((events) => {
+      let lengthEvents = events;
+      if (typeof this.state.locations == 'string') {
+        lengthEvents = lengthEvents.filter((event, index) => event.location == this.state.locations)
+      }
+      lengthEvents = lengthEvents.filter((event, index) => index < eventCount);
+      this.setState({
+        numberOfEvents: eventCount,
+        events: lengthEvents
+      });
+
+    })
   }
+}*/
 
   async componentDidMount() {
     this.mounted = true;

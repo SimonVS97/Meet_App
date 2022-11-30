@@ -95,7 +95,7 @@ class App extends Component {
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
             <ScatterChart
-              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            >
               <CartesianGrid />
               <XAxis dataKey="city" name="City" type="category" />
               <YAxis dataKey="number" name="Number of events" type="number" allowDecimals={false} />

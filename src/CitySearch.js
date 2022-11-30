@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
-class CitySerach extends Component {
+
+class CitySearch extends Component {
+
   state = {
     query: '',
     suggestions: [],
     showSuggestions: undefined,
-  };
+    infoText: ''
+  }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
@@ -16,45 +19,41 @@ class CitySerach extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'City not found. Please try another city.',
+        infoText: 'We can not find the city you are looking for. Please try another city.',
       });
     } else {
-      this.setState({
+      return this.setState({
         query: value,
         suggestions,
-        infoText: '',
-      });
+        infoText: ''
+      })
     }
-  };
+  }
 
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
       showSuggestions: false,
+      infoText: '',
+      suggestions: []
     });
-    this.props.updateEvents(suggestion, undefined);
-  };
+
+    this.props.updateEvents(suggestion);
+  }
 
   render() {
     return (
-      <div className="CitySearch">
-        <label htmlFor="city-search">Location: </label>
+      <div className='CitySearch'>
+        <InfoAlert text={this.state.infoText} />
         <input
           type="text"
-          id="city-search"
           className="city"
-          autoComplete="off"
           value={this.state.query}
           onChange={this.handleInputChanged}
-          onFocus={() => {
-            this.setState({ showSuggestions: true });
-          }}
+          onFocus={() => { this.setState({ showSuggestions: true }) }}
+          placeholder="Search for a city"
         />
-        <InfoAlert text={this.state.infoText} />
-        <ul
-          className="suggestions"
-          style={this.state.showSuggestions ? {} : { display: 'none' }}
-        >
+        <ul className='suggestions' style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
             <li
               key={suggestion}
@@ -63,13 +62,15 @@ class CitySerach extends Component {
               {suggestion}
             </li>
           ))}
-          <li key="all" onClick={() => this.handleItemClicked('all')}>
+          <li key='all' onClick={() => this.handleItemClicked("all")}>
             <b>See all cities</b>
           </li>
+
         </ul>
+
       </div>
     );
   }
 }
 
-export default CitySerach;
+export default CitySearch;

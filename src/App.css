@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 :root {
   --background: #2a2a2a;
@@ -7,13 +7,6 @@
   --secondary-color: #484848;
   --tertiary-color: #606060;
 }
-[data-theme='light'] {
-  --background: #fff;
-  --text-primary: #2a2a2a;
-  --primary-color: #ff6200;
-  --secondary-color: #ffeadd;
-  --tertiary-color: #f6c6a8;
-}
 
 body {
   background-color: var(--background);
@@ -21,16 +14,12 @@ body {
 }
 
 .App {
-  background-color: var(--background);
-  color: var(--text-primary);
-  min-height: 100vh;
   text-align: center;
 }
 
 .App * {
   box-sizing: border-box;
-  font-family: Quicksand, sans-serif;
-  line-height: 1.8;
+  line-height: 1.8;;
 }
 
 .EventList {

@@ -4,26 +4,18 @@ class Alert extends Component {
   constructor(props) {
     super(props);
     this.color = null;
-    this.backgroundColor = null;
-    this.borderRadius = null;
-    this.top = null;
   }
 
   getStyle = () => {
     return {
-      color: this.color,
-      backgroundColor: this.backgroundColor,
-      borderRadius: this.borderRadius,
-      top: this.top,
+      color: this.color
     };
-  };
+  }
 
   render() {
     return (
-      <div>
-        <p style={this.getStyle()} className="Alert">
-          {this.props.text}
-        </p>
+      <div className="Alert">
+        <p style={this.getStyle()}>{this.props.text}</p>
       </div>
     );
   }
@@ -32,31 +24,24 @@ class Alert extends Component {
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(21, 63, 177)';
-    this.backgroundColor = 'rgb(182, 215, 255)';
-    this.borderRadius = '8px';
-    this.top = '205px';
+    this.color = 'blue';
   }
 }
 
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(162, 22, 22)';
-    this.backgroundColor = 'rgb(255, 202, 202)';
-    this.borderRadius = '8px';
-    this.top = '290px';
+    this.color = 'red';
   }
 }
 
 class OfflineAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(255, 98, 0)';
-    this.backgroundColor = 'rgb(202,202,202)';
-    this.borderRadius = '8px';
-    this.top = '90px';
+    this.color = 'green';
   }
 }
 
-export { InfoAlert, ErrorAlert, OfflineAlert };
+export { InfoAlert };
+export { ErrorAlert };
+export { OfflineAlert };

@@ -74,9 +74,6 @@ class App extends Component {
         <h4>Choose your nearest city</h4>
 
         <CitySearch updateEvents={this.updateEvents} locations={this.state.locations}></CitySearch>
-        <br></br>
-        <br></br>
-        <br></br>
         <NumberOfEvents updateEvents={this.updateEvents}></NumberOfEvents>
         <h4>Overview of events</h4>
         <div style={{ textAlign: "center" }} className="data-vis-wrapper">

@@ -3,9 +3,9 @@ import { shallow, mount } from 'enzyme';
 import App from '../App';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import EventList from '../EventList';
-import CitySearch from '../CitySearch';
-import NumberOfEvents from "../NumberOfEvents";
+import EventList from '../components/EventList/EventList.js';
+import CitySearch from '../components/CitySearch/CitySearch.js';
+import NumberOfEvents from "../components/NumberOfEvents/NumberOfEvents.js";
 import { mockData } from '../mockData';
 import { extractLocations, getEvents } from '../api';
 

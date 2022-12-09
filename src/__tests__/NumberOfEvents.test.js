@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import NumberOfEvents from '../NumberOfEvents';
+import NumberOfEvents from '../components/NumberOfEvents/NumberOfEvents';
 
 
 

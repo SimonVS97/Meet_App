@@ -23,8 +23,8 @@ class Event extends Component {
     return (
 
       <div className='event'>
-        <h1>{summary}</h1>
-        <p>{location}</p>
+        <h1 className='Title'>{summary}</h1>
+        <p className='Location'>{location}</p>
         {extraInfo === false && <button
           className='showDetailsButton'
           onClick={() => this.setState({
@@ -36,7 +36,7 @@ class Event extends Component {
           <div className='event__Details'>
             <div className='startDateTime'>Start: {time.slice(0, 10)}</div>
             <div className='startTimeZone'>Timezone: {startTimeZone}</div>
-            <a href={htmlLink} target="_blank">View in Google Calendar</a>
+            <a className='detailsGoogleCalendar' href={htmlLink} target="_blank">View in Google Calendar</a>
             <div className='Summary'>{description}</div>
             <button
               className='hideDetailsButton'

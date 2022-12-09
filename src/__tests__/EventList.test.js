@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import EventList from '../EventList';
+import EventList from '../components/EventList/EventList.js';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import Event from '../Event.js';
+import Event from '../components/Event/Event.js';
 import { mockData } from '../mockData';
 
 Enzyme.configure({ adapter: new Adapter() })

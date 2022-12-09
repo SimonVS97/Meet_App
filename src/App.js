@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import EventList from './EventList';
-import CitySearch from './CitySearch';
-import NumberOfEvents from './NumberOfEvents';
-import EventGenre from './EventGenre';
+import EventList from './components/EventList/EventList.js';
+import CitySearch from './components/CitySearch/CitySearch.js';
+import NumberOfEvents from './components/NumberOfEvents/NumberOfEvents.js';
+import EventGenre from './components/EventGenre/EventGenre.js';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from 'recharts';
@@ -34,33 +34,6 @@ class App extends Component {
     });
   };
 
-  /*if (eventCount === undefined) {
-    getEvents().then((events) => {
-      let locationEvents = (location === 'all') ?
-        events :
-        events.filter((event) => event.location === location);
-      locationEvents = locationEvents.filter((event, index) => index < this.state.numberOfEvents);
-      location = [location];
-      this.setState({
-        events: locationEvents,
-        locations: location
-      });
-    });
-  } else if (location === undefined) {
-    getEvents().then((events) => {
-      let lengthEvents = events;
-      if (typeof this.state.locations == 'string') {
-        lengthEvents = lengthEvents.filter((event, index) => event.location == this.state.locations)
-      }
-      lengthEvents = lengthEvents.filter((event, index) => index < eventCount);
-      this.setState({
-        numberOfEvents: eventCount,
-        events: lengthEvents
-      });
-
-    })
-  }
-}*/
 
   async componentDidMount() {
     this.mounted = true;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InfoAlert } from './components/Alert/Alert.js';
+import { InfoAlert } from '../Alert/Alert.js'
 
 
 class CitySearch extends Component {

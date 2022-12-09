@@ -9,7 +9,7 @@ import EventList from '../EventList';
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
+const feature = loadFeature('./showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
   // Test 1

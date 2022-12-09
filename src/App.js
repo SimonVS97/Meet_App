@@ -5,7 +5,7 @@ import CitySearch from './components/CitySearch/CitySearch.js';
 import NumberOfEvents from './components/NumberOfEvents/NumberOfEvents.js';
 import EventGenre from './components/EventGenre/EventGenre.js';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
-import WelcomeScreen from './WelcomeScreen';
+import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen.jsx';
 import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from 'recharts';
 
 

@@ -11,7 +11,7 @@ import CitySearch from '../CitySearch';
 Enzyme.configure({ adapter: new Adapter() })
 
 
-const feature = loadFeature('./src/features/filterEventsByCity.feature');
+const feature = loadFeature('./filterEventsByCity.feature');
 const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {

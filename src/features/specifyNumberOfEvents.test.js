@@ -7,7 +7,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const feature = loadFeature('./src/features/specifyNumberOfEvents.feature');
+const feature = loadFeature('./specifyNumberOfEvents.feature');
 
 defineFeature(feature, test => {
 

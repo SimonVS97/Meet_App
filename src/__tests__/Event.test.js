@@ -45,7 +45,7 @@ describe('<Event /> component', () => {
     expect(EventWrapper.find('.Title').text()).toBe(event.summary)
     //expect(EventWrapper.find('.startTimeZone').text()).toBe(event.end.dateTime)
     expect(EventWrapper.find('.Location').text()).toBe(event.location)
-    expect(EventWrapper.find('.detailsGoogleCalendar').text()).toBe(event.htmlLink)
+    expect(EventWrapper.find('.detailsGoogleCalendar').text()).toBe("View in Google Calendar")
     expect(EventWrapper.find('.Summary').text()).toBe(event.description)
   })
 

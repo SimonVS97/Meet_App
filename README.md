@@ -43,6 +43,9 @@ You can access the app with this URL: https://simonvs97.github.io/Meet_App/
 -  "workbox-strategies": "^6.5.4",
 -  "workbox-streams": "^6.5.4"
 
+## API
+This app uses the Google Calendar API to fetch information about upcoming events by location.
+
 ## How to get the project running
 1. Clone the project
 2. Install all dependencies mentioned in package.json
@@ -127,9 +130,11 @@ As a user, I want to be able to know the number of upcoming events by city, so I
 - then the user should see a chart with the number of upcoming events in that city
 
 
-## API
-This app uses the Google Calendar API to fetch information about upcoming events by location.
+## Author
 
+Simon Victor Schubert
+
+[Check out my LinkedIn](https://www.linkedin.com/in/simon-schubert/)
 
 
 

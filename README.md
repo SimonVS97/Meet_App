@@ -10,22 +10,38 @@ This app provides a list of upcoming events for any given city, with data provid
 ## How to access the project
 You can access the app with this URL: https://simonvs97.github.io/Meet_App/
 
-## Tech Stack
+## Built with
 - HTML
 - CSS
 - JS
-- React v.18.2.0
+- React
 - AWS Lambda
-- Serverless
 - CRA
 
 ## Dependencies
-* Axios
-* nprogress
-* React
-* React-DOM
-* React-Router-DOM
-* Recharts
+- "@testing-library/jest-dom": "^5.16.5",
+- "@testing-library/react": "^13.3.0",
+- "@testing-library/user-event": "^13.5.0",
+- "atatus-spa": "^4.5.0",
+- "axios": "^0.27.2",
+- "nprogress": "^0.2.0",
+- "react": "^18.2.0",
+- "react-dom": "^18.2.0",
+- "react-scripts": "5.0.1",
+- "recharts": "^2.1.13",
+- "web-vitals": "^2.1.4",
+- "workbox-background-sync": "^6.5.4",
+- "workbox-broadcast-update": "^6.5.4",
+- "workbox-cacheable-response": "^6.5.4",
+- "workbox-core": "^6.5.4",
+-  "workbox-expiration": "^6.5.4",
+-  "workbox-google-analytics": "^6.5.4",
+-  "workbox-navigation-preload": "^6.5.4",
+-  "workbox-precaching": "^6.5.4",
+-  "workbox-range-requests": "^6.5.4",
+-  "workbox-routing": "^6.5.4",
+-  "workbox-strategies": "^6.5.4",
+-  "workbox-streams": "^6.5.4"
 
 ## User Stories
 

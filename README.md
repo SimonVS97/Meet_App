@@ -3,8 +3,8 @@
 ## Description
 This app provides a list of upcoming events for any given city, with data provided by Google Calendar. The app works offline using cached data from the last time it was used online. The user can serach for events in a specific city or browse all events, customize how many events are shown on screen, click an event for more details, and see how many events are upcoming in certain cities.
 
-![First Section](https://user-images.githubusercontent.com/104713327/209681175-efa69e2a-d442-43d8-8923-f9fc635f58e1.png)
-![Second Section](https://user-images.githubusercontent.com/104713327/209681277-09b145cc-f606-41ff-b029-b4ec7168d2fb.png)
+![First Section](https://user-images.githubusercontent.com/104713327/209682295-cec493ed-e19e-44e7-ad96-b0412a631c22.png)
+![Second Section](https://user-images.githubusercontent.com/104713327/209682242-6751854f-58c5-4123-afd0-10e372d8cf1b.png)
 
 ## Tech Stack
 - HTML

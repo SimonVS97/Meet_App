@@ -43,6 +43,13 @@ You can access the app with this URL: https://simonvs97.github.io/Meet_App/
 -  "workbox-strategies": "^6.5.4",
 -  "workbox-streams": "^6.5.4"
 
+## How to get the project running
+1. Clone the project
+2. Install all dependencies mentioned in package.json
+3. cd to the project directory
+4. Run it by:
+```npm run start```
+
 ## User Stories
 
 ### User Story 1 

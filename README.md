@@ -6,6 +6,10 @@ This app provides a list of upcoming events for any given city, with data provid
 ![First Section](https://user-images.githubusercontent.com/104713327/209682295-cec493ed-e19e-44e7-ad96-b0412a631c22.png)
 ![Second Section](https://user-images.githubusercontent.com/104713327/209682242-6751854f-58c5-4123-afd0-10e372d8cf1b.png)
 
+
+## How to access the project
+You can access the app with this URL: https://simonvs97.github.io/Meet_App/
+
 ## Tech Stack
 - HTML
 - CSS
